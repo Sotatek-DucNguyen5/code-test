@@ -7,5 +7,5 @@ import com.example.codingtest.service.IBaseService;
 import java.util.List;
 
 public interface IPostDetailService extends IBaseService<PostDetailDTO> {
-    List<PostDetailDTO> findAllByPostcode(String firstPostcodes, String secondPostcodes);
+    List<PostDetailDTO> findAllByPostcode(List<Long> postcodes);
 }

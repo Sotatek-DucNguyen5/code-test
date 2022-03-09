@@ -7,8 +7,4 @@ public interface IBaseService<T> {
     List<T> findAll();
 
     T save(T t);
-
-    void remove(T t);
-
-    T findById(Long id);
 }

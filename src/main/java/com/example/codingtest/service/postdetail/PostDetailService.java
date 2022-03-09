@@ -1,14 +1,11 @@
 package com.example.codingtest.service.postdetail;
 
-import com.example.codingtest.CodingTestApplication;
 import com.example.codingtest.domain.dto.PostDetailDTO;
 import com.example.codingtest.domain.entity.PostDetail;
 import com.example.codingtest.repository.PostDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,17 +14,6 @@ public class PostDetailService implements IPostDetailService {
     @Autowired
     private PostDetailRepository postDetailRepository;
 
-
-    @EventListener()
-    public void seedData(){
-        if (this.findAll().size() <= 0) {
-            postDetailRepository.save(new PostDetail("Ha Noi", 15000L));
-            postDetailRepository.save(new PostDetail("Hai Phong", 16000L));
-            postDetailRepository.save(new PostDetail("Ha Nam", 17000L));
-            postDetailRepository.save(new PostDetail("Vinh Phuc", 18000L));
-
-        }
-    }
 
     @Override
     public List<PostDetailDTO> findAll() {

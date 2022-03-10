@@ -29,7 +29,6 @@ public class PostDetail {
     }
 
     public PostDetail(PostDetailDTO postDetailDTO) {
-        this.id = postDetailDTO.getId();
         this.suburbNames = postDetailDTO.getSuburbNames();
         this.postcodes = postDetailDTO.getPostcodes();
     }

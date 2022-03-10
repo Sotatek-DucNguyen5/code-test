@@ -9,14 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PostDetailDTO {
-    private Long id;
-
     private String suburbNames;
 
     private Long postcodes;
 
     public PostDetailDTO(PostDetail postDetail) {
-        this.id = postDetail.getId();
         this.suburbNames = postDetail.getSuburbNames();
         this.postcodes = postDetail.getPostcodes();
     }

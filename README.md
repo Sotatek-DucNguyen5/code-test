@@ -3,21 +3,19 @@
 ### Prerequisite
 
 
-You need to have maven environment (mvn) and java
+You need to have maven environment (mvn) and java version 11
 
 
 ### Steps
 
 1. Create database
     
-    - You need create database before taking the next steps.
+    - You need to create database before taking the next steps.
 
-2. Connect database
-   - Open **application.properties** file 
-
-     ({path-file-to-project}\src\main\resources\application.properties)
+2. Connect to database
+   - Open **application.properties** file
    
-   - You enter URL, USERNAME, PASSWORD 
+   - Insert suitable **URL, USERNAME, PASSWORD** for database settings
 
    `spring.datasource.url=${DB_URL}`
 

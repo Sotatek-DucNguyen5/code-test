@@ -32,7 +32,7 @@ public class PostDetailService implements IPostDetailService {
     }
 
     @Override
-    public List<PostDetailDTO> findAllByPostcode(List<Long> postcodes) {
+    public List<PostDetailDTO> findAllByPostcode(List<String> postcodes) {
         if (postcodes.size() > 0) {
             List<PostDetail> postDetailList = postDetailRepository.findByPostcodesInOrderBySuburbNames(postcodes);
             List<PostDetailDTO> postDetailDTOList = new ArrayList<>();

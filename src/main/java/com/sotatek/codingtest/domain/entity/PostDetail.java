@@ -21,9 +21,9 @@ public class PostDetail {
     private String suburbNames;
 
     @Column(name = "postcodes")
-    private Long postcodes;
+    private String postcodes;
 
-    public PostDetail(String suburbNames, Long postcodes) {
+    public PostDetail(String suburbNames, String postcodes) {
         this.suburbNames = suburbNames;
         this.postcodes = postcodes;
     }

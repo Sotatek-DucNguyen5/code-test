@@ -25,7 +25,7 @@ public class PostDetailController {
     }
 
     @GetMapping("get-by-postcodes")
-    public ResultResp<List<PostDetailDTO>> getAllByPostcodes(@RequestBody List<Long> postcodes) {
+    public ResultResp<List<PostDetailDTO>> getAllByPostcodes(@RequestBody List<String> postcodes) {
         List<PostDetailDTO> postDetailDTOList = postDetailService.findAllByPostcode(postcodes);
         if (postDetailDTOList.size() <= 0) {
             return new ResultResp<>(HttpStatus.OK);

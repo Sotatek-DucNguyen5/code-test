@@ -6,5 +6,5 @@ import com.sotatek.codingtest.service.IBaseService;
 import java.util.List;
 
 public interface IPostDetailService extends IBaseService<PostDetailDTO> {
-    List<PostDetailDTO> findAllByPostcode(List<Long> postcodes);
+    List<PostDetailDTO> findAllByPostcode(List<String> postcodes);
 }

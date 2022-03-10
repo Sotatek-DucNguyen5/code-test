@@ -18,10 +18,10 @@ public class DataLoader implements CommandLineRunner {
 
     private void loadData() {
         if (postDetailRepository.findAll().size() <= 0) {
-            postDetailRepository.save(new PostDetail("Ha Noi", 15000L));
-            postDetailRepository.save(new PostDetail("Hai Phong", 16000L));
-            postDetailRepository.save(new PostDetail("Ha Nam", 17000L));
-            postDetailRepository.save(new PostDetail("Vinh Phuc", 18000L));
+            postDetailRepository.save(new PostDetail("Ha Noi", "10000"));
+            postDetailRepository.save(new PostDetail("Hai Phong", "04000"));
+            postDetailRepository.save(new PostDetail("Ha Nam", "18000"));
+            postDetailRepository.save(new PostDetail("Vinh Phuc", "15000"));
         }
     }
 }

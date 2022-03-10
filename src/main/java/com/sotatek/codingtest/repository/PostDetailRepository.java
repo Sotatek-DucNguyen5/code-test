@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface PostDetailRepository extends JpaRepository<PostDetail, Long> {
 
-    List<PostDetail> findByPostcodesInOrderBySuburbNames(List<Long> postcodes);
+    List<PostDetail> findByPostcodesInOrderBySuburbNames(List<String> postcodes);
 }

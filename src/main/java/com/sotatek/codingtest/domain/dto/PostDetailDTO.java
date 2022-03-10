@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class PostDetailDTO {
     private String suburbNames;
 
-    private Long postcodes;
+    private String postcodes;
 
     public PostDetailDTO(PostDetail postDetail) {
         this.suburbNames = postDetail.getSuburbNames();

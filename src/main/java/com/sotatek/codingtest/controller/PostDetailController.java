@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -17,29 +16,32 @@ public class PostDetailController {
     private PostDetailService postDetailService;
 
     @GetMapping("post")
-    public ResultResp<List<PostDetailDTO>> getAll(@RequestBody(required = false) List<String> postcodes) {
-        List<PostDetailDTO> postDetailDTOList = new ArrayList<>();
+    public ResultResp<?> getAll(@RequestBody(required = false) List<String> postcodes) {
+        ResultResp<?> resultResp;
         try {
             if (postcodes != null) {
-                postDetailDTOList = postDetailService.findAllByPostcode(postcodes);
+                resultResp = new ResultResp<>(HttpStatus.OK, postDetailService.findAllByPostcode(postcodes));
             } else {
-                postDetailDTOList = postDetailService.findAll();
+                resultResp= new ResultResp<>(HttpStatus.OK, postDetailService.findAll());
             }
         } catch (Exception e) {
-            return new ResultResp<>(HttpStatus.BAD_REQUEST);
+            resultResp = new ResultResp<>(HttpStatus.BAD_REQUEST);
         }
-        return new ResultResp<>(HttpStatus.OK, postDetailDTOList);
+        return resultResp;
     }
 
     @PostMapping("post/create")
-    public ResultResp<PostDetailDTO> create(@RequestBody PostDetailDTO postDetailDTO) {
+    public ResultResp<?> create(@RequestBody PostDetailDTO postDetailDTO) {
+        ResultResp<?> resultResp;
         try {
             if (postDetailDTO.getSuburbNames() == null || postDetailDTO.getPostcodes() == null) {
-                return new ResultResp<>(HttpStatus.BAD_REQUEST);
+                resultResp= new ResultResp<>(HttpStatus.BAD_REQUEST);
+            } else {
+                resultResp = new ResultResp<>(HttpStatus.OK, postDetailService.save(postDetailDTO));
             }
-            return new ResultResp<>(HttpStatus.CREATED, postDetailService.save(postDetailDTO));
         } catch (Exception e) {
-            return new ResultResp<>(HttpStatus.BAD_REQUEST);
+            resultResp= new ResultResp<>(HttpStatus.BAD_REQUEST);
         }
+        return resultResp;
     }
 }

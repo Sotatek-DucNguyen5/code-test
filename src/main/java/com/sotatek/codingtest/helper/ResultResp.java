@@ -4,9 +4,11 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
-public class ResultResp<T extends Object> {
+public class ResultResp<T extends Object> implements Serializable {
 
     private int respCode;
 

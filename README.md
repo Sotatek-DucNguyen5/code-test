@@ -1,6 +1,6 @@
 # Getting Started
 
-###Prerequisite
+### Prerequisite
 
 
 You need to have maven environment (mvn) and java

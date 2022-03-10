@@ -15,25 +15,18 @@ public class PostDetailController {
     @Autowired
     private PostDetailService postDetailService;
 
-    @GetMapping("get-all")
-    public ResultResp<List<PostDetailDTO>> getAll() {
-        List<PostDetailDTO> postDetailDTOList = postDetailService.findAll();
-        if (postDetailDTOList.size() <= 0) {
-            return new ResultResp<>(HttpStatus.OK);
+    @GetMapping("post")
+    public ResultResp<List<PostDetailDTO>> getAll(@RequestBody(required = false) List<String> postcodes) {
+        List<PostDetailDTO> postDetailDTOList;
+        if (postcodes != null) {
+            postDetailDTOList = postDetailService.findAllByPostcode(postcodes);
+        } else {
+            postDetailDTOList = postDetailService.findAll();
         }
         return new ResultResp<>(HttpStatus.OK, postDetailDTOList);
     }
 
-    @GetMapping("get-by-postcodes")
-    public ResultResp<List<PostDetailDTO>> getAllByPostcodes(@RequestBody List<String> postcodes) {
-        List<PostDetailDTO> postDetailDTOList = postDetailService.findAllByPostcode(postcodes);
-        if (postDetailDTOList.size() <= 0) {
-            return new ResultResp<>(HttpStatus.OK);
-        }
-        return new ResultResp<>(HttpStatus.OK, postDetailDTOList);
-    }
-
-    @PostMapping("create")
+    @PostMapping("post/create")
     public ResultResp<PostDetailDTO> create(@RequestBody PostDetailDTO postDetailDTO) {
         if (postDetailDTO.getSuburbNames() == null || postDetailDTO.getPostcodes() == null) {
             return new ResultResp<>(HttpStatus.BAD_REQUEST);

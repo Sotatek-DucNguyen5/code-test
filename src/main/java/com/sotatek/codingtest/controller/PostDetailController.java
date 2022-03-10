@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -17,20 +18,28 @@ public class PostDetailController {
 
     @GetMapping("post")
     public ResultResp<List<PostDetailDTO>> getAll(@RequestBody(required = false) List<String> postcodes) {
-        List<PostDetailDTO> postDetailDTOList;
-        if (postcodes != null) {
-            postDetailDTOList = postDetailService.findAllByPostcode(postcodes);
-        } else {
-            postDetailDTOList = postDetailService.findAll();
+        List<PostDetailDTO> postDetailDTOList = new ArrayList<>();
+        try {
+            if (postcodes != null) {
+                postDetailDTOList = postDetailService.findAllByPostcode(postcodes);
+            } else {
+                postDetailDTOList = postDetailService.findAll();
+            }
+        } catch (Exception e) {
+            return new ResultResp<>(HttpStatus.BAD_REQUEST);
         }
         return new ResultResp<>(HttpStatus.OK, postDetailDTOList);
     }
 
     @PostMapping("post/create")
     public ResultResp<PostDetailDTO> create(@RequestBody PostDetailDTO postDetailDTO) {
-        if (postDetailDTO.getSuburbNames() == null || postDetailDTO.getPostcodes() == null) {
+        try {
+            if (postDetailDTO.getSuburbNames() == null || postDetailDTO.getPostcodes() == null) {
+                return new ResultResp<>(HttpStatus.BAD_REQUEST);
+            }
+            return new ResultResp<>(HttpStatus.CREATED, postDetailService.save(postDetailDTO));
+        } catch (Exception e) {
             return new ResultResp<>(HttpStatus.BAD_REQUEST);
         }
-        return new ResultResp<>(HttpStatus.CREATED, postDetailService.save(postDetailDTO));
     }
 }

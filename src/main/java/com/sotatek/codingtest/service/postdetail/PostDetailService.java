@@ -16,7 +16,7 @@ public class PostDetailService implements IPostDetailService {
 
 
     @Override
-    public List<PostDetailDTO> findAll() {
+    public List<PostDetailDTO> findAll() throws Exception {
         List<PostDetailDTO> postDetailDTOList = new ArrayList<>();
         postDetailRepository.findAll().stream().forEach(postDetail -> {
             postDetailDTOList.add(new PostDetailDTO(postDetail));
@@ -25,14 +25,14 @@ public class PostDetailService implements IPostDetailService {
     }
 
     @Override
-    public PostDetailDTO save(PostDetailDTO postDetailDTO) {
+    public PostDetailDTO save(PostDetailDTO postDetailDTO) throws Exception {
         PostDetail postDetail = new PostDetail(postDetailDTO);
         postDetailDTO = new PostDetailDTO(postDetailRepository.save(postDetail));
         return postDetailDTO;
     }
 
     @Override
-    public List<PostDetailDTO> findAllByPostcode(List<String> postcodes) {
+    public List<PostDetailDTO> findAllByPostcode(List<String> postcodes) throws Exception{
         if (postcodes.size() > 0) {
             List<PostDetail> postDetailList = postDetailRepository.findByPostcodesInOrderBySuburbNames(postcodes);
             List<PostDetailDTO> postDetailDTOList = new ArrayList<>();

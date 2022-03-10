@@ -1,6 +1,6 @@
-package com.example.codingtest.domain.entity;
+package com.sotatek.codingtest.domain.entity;
 
-import com.example.codingtest.domain.dto.PostDetailDTO;
+import com.sotatek.codingtest.domain.dto.PostDetailDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

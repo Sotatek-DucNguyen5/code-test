@@ -1,7 +1,7 @@
-package com.example.codingtest.controller;
+package com.sotatek.codingtest.controller;
 
-import com.example.codingtest.domain.dto.PostDetailDTO;
-import com.example.codingtest.service.postdetail.PostDetailService;
+import com.sotatek.codingtest.domain.dto.PostDetailDTO;
+import com.sotatek.codingtest.service.postdetail.PostDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

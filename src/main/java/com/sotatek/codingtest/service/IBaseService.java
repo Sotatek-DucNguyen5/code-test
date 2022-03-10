@@ -1,4 +1,4 @@
-package com.example.codingtest.service;
+package com.sotatek.codingtest.service;
 
 
 import java.util.List;

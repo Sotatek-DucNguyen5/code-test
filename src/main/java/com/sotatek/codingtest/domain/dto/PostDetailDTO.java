@@ -1,6 +1,6 @@
-package com.example.codingtest.domain.dto;
+package com.sotatek.codingtest.domain.dto;
 
-import com.example.codingtest.domain.entity.PostDetail;
+import com.sotatek.codingtest.domain.entity.PostDetail;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +14,7 @@ public class PostDetailDTO {
     private String suburbNames;
 
     private Long postcodes;
+
     public PostDetailDTO(PostDetail postDetail) {
         this.id = postDetail.getId();
         this.suburbNames = postDetail.getSuburbNames();

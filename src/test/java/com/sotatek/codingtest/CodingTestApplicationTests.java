@@ -1,4 +1,4 @@
-package com.example.codingtest;
+package com.sotatek.codingtest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

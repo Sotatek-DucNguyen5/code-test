@@ -1,7 +1,6 @@
-package com.example.codingtest.repository;
+package com.sotatek.codingtest.repository;
 
-import com.example.codingtest.domain.entity.PostDetail;
-import org.springframework.context.event.EventListener;
+import com.sotatek.codingtest.domain.entity.PostDetail;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

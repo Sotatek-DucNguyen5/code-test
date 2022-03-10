@@ -1,4 +1,4 @@
-package com.example.codingtest.exception;
+package com.sotatek.codingtest.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

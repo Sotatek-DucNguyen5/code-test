@@ -1,8 +1,7 @@
-package com.example.codingtest;
+package com.sotatek.codingtest;
 
-import com.example.codingtest.domain.entity.PostDetail;
-import com.example.codingtest.repository.PostDetailRepository;
-import com.example.codingtest.service.postdetail.IPostDetailService;
+import com.sotatek.codingtest.domain.entity.PostDetail;
+import com.sotatek.codingtest.repository.PostDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

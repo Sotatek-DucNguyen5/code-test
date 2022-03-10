@@ -15,7 +15,7 @@ public class PostDetailController {
     @Autowired
     private PostDetailService postDetailService;
 
-    @GetMapping("post")
+    @PostMapping("post")
     public ResultResp<?> getAll(@RequestBody(required = false) List<String> postcodes) {
         ResultResp<?> resultResp;
         try {
